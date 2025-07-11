@@ -5,22 +5,23 @@ export default function Home() {
   return (
     <>
       <Hero />
-      {/* Секционный заголовок */}
-      <section className="w-full max-w-[1240px] flex flex-col items-start gap-[10px] mb-12">
-        <h2
-          className="font-montserrat font-semibold text-[56px] leading-[120%] tracking-[-0.04em] text-[#333]"
-          style={{ letterSpacing: '-0.04em', lineHeight: '120%' }}
-        >
-          Создаем цифровые продукты
-        </h2>
-        <div
-          className="font-inter font-normal text-[20px] leading-[150%] tracking-[-0.04em] text-[#5C5C5C] opacity-80"
-          style={{ letterSpacing: '-0.04em', lineHeight: '150%' }}
-        >
-          И делаем это круче и качественнее, чем вы ожидаете
+      <div className="w-full max-w-[1240px] mx-auto flex flex-col items-start px-4">
+        {/* Секционный заголовок */}
+        <div className="flex flex-col items-start gap-2.5 mb-8 w-full">
+          <h2
+            className="font-montserrat font-semibold text-[56px] leading-[120%] tracking-[-0.04em] text-[#333] w-full md:text-[44px] sm:text-[32px]"
+            style={{ letterSpacing: '-0.04em', lineHeight: '120%' }}
+          >
+            Создаем цифровые продукты
+          </h2>
+          <div
+            className="font-inter font-normal text-[20px] leading-[150%] tracking-[-0.04em] text-[#5C5C5C] opacity-80 w-full md:text-[16px] sm:text-[14px]"
+            style={{ letterSpacing: '-0.04em', lineHeight: '150%' }}
+          >
+            И делаем это круче и качественнее, чем вы ожидаете
+          </div>
         </div>
-      </section>
-      <main className="flex justify-start items-start gap-8 py-20 px-4 max-w-7xl mx-auto">
+        <main className="flex justify-start items-start gap-8 py-12 w-full">
         {/* Слева — фиолетовая карточка */}
         <div className="flex flex-col items-start">
           <WidgetCard
@@ -102,6 +103,28 @@ export default function Home() {
           />
         </div>
       </main>
+      {/* Нижние два виджета */}
+      <div className="flex flex-row gap-5 w-full max-w-[1240px] mt-5">
+        <WidgetCard
+          bgColor="bg-white"
+          textColor="text-[#333]"
+          iconBorderColor="black"
+          icon={<img src="/auromatization.svg" alt="Автоматизация" width={22} height={22} />}
+          title="Автоматизация бизнес-процессов"
+          text="Документооборот, отраслевые учетные системы, банковские системы, риск-менеджмент, CRM и многое другое"
+          className="flex flex-col items-start p-[30px] gap-4 w-[610px] h-[258px] rounded-[40px]"
+        />
+        <WidgetCard
+          bgColor="bg-white"
+          textColor="text-[#333]"
+          iconBorderColor="black"
+          icon={<img src="/consulting.svg" alt="Консалтинг и обучение" width={22} height={22} />}
+          title="Консалтинг и обучение"
+          text="Консультации в области разработки программного обеспечения, проектирование архитектуры, анализ существующего кода, организация эффективной работы по Agile"
+          className="flex flex-col items-start p-[30px] gap-4 w-[610px] h-[258px] rounded-[40px]"
+        />
+      </div>
+    </div>
     </>
   );
 }
