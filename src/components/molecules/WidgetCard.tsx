@@ -1,6 +1,6 @@
 'use client';
 
-import React from 'react';
+import React, { isValidElement, ReactElement } from 'react';
 import { cn } from '@/utils/cn';
 
 interface WidgetCardProps {
@@ -23,12 +23,18 @@ const IconBox: React.FC<{children: React.ReactNode; iconBorderColor?: 'white' | 
   return (
     <div
       className={cn(
-        'w-10 h-10 flex items-center justify-center rounded-xl border-2',
+        'w-10 h-10 aspect-square flex items-center justify-center rounded-xl border-2',
         border
       )}
-      style={{ borderRadius: 12, border: iconBorderColor === 'black' ? '2px solid #333' : '2px solid rgba(255,255,255,0.25)' }}
+      style={{ borderRadius: 12, border: iconBorderColor === 'black' ? '2px solid #333' : '2px solid rgba(255,255,255,0.25)', display: 'flex', alignItems: 'center', justifyContent: 'center', boxSizing: 'border-box' }}
     >
-      {children}
+      {typeof children === 'string' ? (
+        <img src={children} alt="icon" style={{ maxWidth: 20, maxHeight: 20 }} />
+      ) : isValidElement(children) && (children.type === 'img') ? (
+        React.cloneElement(children as ReactElement, {
+          style: { maxWidth: 20, maxHeight: 20 }
+        })
+      ) : children}
     </div>
   );
 };
