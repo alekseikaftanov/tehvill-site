@@ -1,53 +1,40 @@
 import { Hero } from '@/components/organisms/Hero';
 import { WidgetCard } from '@/components/molecules/WidgetCard';
 
-const widgets = [
-  {
-    key: 'mobile-dev',
-    title: 'Разработка мобильных приложений',
-    text: 'Создаем уникальные приложения для крупного и среднего бизнеса, интегрированные с вашими IT-системами.',
-    bgColor: 'bg-[#6C1EFF]',
-    textColor: 'text-white',
-    icon: <img src="/mobile.svg" alt="Мобильные приложения" width={20} height={20} />, 
-    bottomImage: '/pictures/mobile-picture.svg',
-    className: 'flex flex-col items-start p-[30px] gap-4 w-[400px] h-[500px] rounded-[40px]',
-  },
-];
-
 export default function Home() {
   return (
-    <div>
-      <Hero />
-      <div className="max-w-6xl mx-auto py-16 px-4">
-        {/* Заголовок секции */}
-        <div className="mb-10">
-          <h2 className="text-5xl font-semibold text-[#333333] leading-[120%] tracking-[-0.04em] mb-2">
-            Создаем цифровые продукты
-          </h2>
-          <p className="text-xl text-[#5C5C5C] leading-[150%] tracking-[-0.04em] opacity-80">
-            И делаем это круче и качественнее, чем вы ожидаете
-          </p>
-        </div>
-        {/* Сетка карточек 3 в ряд с поддержкой row-span для masonry */}
-        <div className="mb-[50px]">
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-5 auto-rows-[1fr] md:auto-rows-[270px]">
-            {widgets.map((w) => (
-              <WidgetCard
-                key={w.key}
-                bgColor={w.bgColor}
-                textColor={w.textColor}
-                icon={w.icon}
-                title={w.title}
-                text={w.text}
-                className={w.className}
-                bottomImage={w.bottomImage}
-              />
-            ))}
-          </div>
-        </div>
-        {/* Детали, которые имеют значение */}
-        {/* Удалён блок detailsWidgets */}
+    <main className="flex justify-start items-start gap-8 py-20 px-4 max-w-7xl mx-auto">
+      {/* Слева — фиолетовая карточка */}
+      <WidgetCard
+        bgColor="bg-[#6C1EFF]"
+        textColor="text-white"
+        icon={<img src="/mobile.svg" alt="Мобильные приложения" width={20} height={20} />}
+        title="Разработка мобильных приложений"
+        text="Создаем уникальные приложения для крупного и среднего бизнеса, интегрированные с вашими IT-системами."
+        bottomImage="/pictures/mobile-picture.svg"
+        className="flex flex-col items-start p-[30px] gap-4 w-[400px] h-[500px] rounded-[40px]"
+      />
+      {/* Справа — вертикальный столбец из двух карточек */}
+      <div className="flex flex-col gap-8">
+        <WidgetCard
+          bgColor="bg-white"
+          textColor="text-[#333]"
+          iconBorderColor="black"
+          icon={<img src="/support.svg" alt="Поддержка" width={22} height={22} />}
+          title="Поддержка и развитие мобильных приложений"
+          text="Делаем ваше приложение идеальным для любых гаджетов"
+          className="flex flex-col items-start p-[30px] gap-4 w-[400px] h-[270px] rounded-[40px]"
+        />
+        <WidgetCard
+          bgColor="bg-[#333333]"
+          textColor="text-white"
+          icon={<img src="/sites.svg" alt="Веб-приложения и сайты" width={20} height={20} />}
+          title="Веб-приложения и сайты"
+          text="Создаем современные сайты и веб-сервисы для бизнеса любого масштаба, с уникальным дизайном и высокой производительностью."
+          bottomImage="/pictures/web-picture.svg"
+          className="flex flex-col items-start p-[30px] gap-4 w-[400px] h-[500px] rounded-[40px]"
+        />
       </div>
-    </div>
+    </main>
   );
 }
