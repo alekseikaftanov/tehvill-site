@@ -65,20 +65,16 @@ export const SimpleImageSlider: FC<SimpleImageSliderProps> = ({ images }) => {
           1024: { slidesPerView: 'auto', spaceBetween: 20 },
         }}
       >
-        {images.map((_, i) => (
+        {images.map((src, i) => (
           <SwiperSlide
             key={i}
             className="min-w-[1040px] max-w-[1040px] flex-none flex justify-center items-center"
             style={{ height: 600 }}
           >
-            <div
-              style={{
-                width: 1040,
-                height: 600,
-                borderRadius: 40,
-                background: '#fff',
-                display: 'block',
-              }}
+            <img
+              src={src}
+              alt={src}
+              style={{ width: 1040, height: 600, borderRadius: 40, objectFit: 'cover', display: 'block' }}
             />
           </SwiperSlide>
         ))}
