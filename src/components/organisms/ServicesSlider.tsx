@@ -46,4 +46,43 @@ export const ServicesSlider: FC<ServicesSliderProps> = ({ widgets }) => {
       </Swiper>
     </div>
   );
+};
+
+interface SimpleImageSliderProps {
+  images: string[];
+}
+
+export const SimpleImageSlider: FC<SimpleImageSliderProps> = ({ images }) => {
+  return (
+    <div style={{ width: 1240, height: 600, marginTop: 40 }}>
+      <Swiper
+        spaceBetween={20}
+        slidesPerView={'auto'}
+        style={{ width: '100%', height: 600 }}
+        breakpoints={{
+          0: { slidesPerView: 1, spaceBetween: 20 },
+          768: { slidesPerView: 2, spaceBetween: 20 },
+          1024: { slidesPerView: 'auto', spaceBetween: 20 },
+        }}
+      >
+        {images.map((_, i) => (
+          <SwiperSlide
+            key={i}
+            className="min-w-[1040px] max-w-[1040px] flex-none flex justify-center items-center"
+            style={{ height: 600 }}
+          >
+            <div
+              style={{
+                width: 1040,
+                height: 600,
+                borderRadius: 40,
+                background: '#fff',
+                display: 'block',
+              }}
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
+  );
 }; 
