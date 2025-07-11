@@ -6,6 +6,22 @@ export default function Home() {
   return (
     <>
       <Hero />
+      <div className="w-full flex justify-center" style={{ marginTop: 60, marginBottom: 40 }}>
+        <div className="flex flex-col items-start gap-[10px]" style={{ width: 1240, height: 107 }}>
+          <div
+            className="font-montserrat font-semibold"
+            style={{ fontSize: 56, lineHeight: '120%', letterSpacing: '-0.04em', color: '#333', height: 67, width: 1240 }}
+          >
+            Создаем цифровые продукты
+          </div>
+          <div
+            className="font-inter"
+            style={{ fontWeight: 400, fontSize: 20, lineHeight: '150%', letterSpacing: '-0.04em', color: '#5C5C5C', opacity: 0.8, height: 30, width: 1240 }}
+          >
+            И делаем это круче и качественнее, чем вы ожидаете
+          </div>
+        </div>
+      </div>
       {/* Основная секция с карточками/виджетами */}
       <div className="w-full max-w-[1240px] mx-auto flex flex-col items-start px-4">
         <main className="flex justify-start items-start gap-5 py-5 w-full">
