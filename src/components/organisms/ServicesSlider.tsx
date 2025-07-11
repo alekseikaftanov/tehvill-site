@@ -2,10 +2,7 @@
 
 import { FC } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
-import { Navigation, Pagination } from 'swiper/modules';
 import 'swiper/css';
-import 'swiper/css/navigation';
-import 'swiper/css/pagination';
 import { WidgetCard } from '../molecules/WidgetCard';
 
 interface Widget {
@@ -23,30 +20,30 @@ interface ServicesSliderProps {
 
 export const ServicesSlider: FC<ServicesSliderProps> = ({ widgets }) => {
   return (
-    <Swiper
-      modules={[Navigation, Pagination]}
-      spaceBetween={20}
-      slidesPerView={1}
-      navigation
-      pagination={{ clickable: true }}
-      breakpoints={{
-        768: { slidesPerView: 2 },
-        1024: { slidesPerView: 3 },
-      }}
-      style={{ paddingBottom: 40 }}
-    >
-      {widgets.map((w) => (
-        <SwiperSlide key={w.key}>
-          <WidgetCard
-            bgColor={w.bgColor}
-            textColor={w.textColor}
-            icon={w.icon}
-            title={w.title}
-            text={w.text}
-            className="w-full h-full"
-          />
-        </SwiperSlide>
-      ))}
-    </Swiper>
+    <div style={{ width: 1240, height: 360 }}>
+      <Swiper
+        spaceBetween={20}
+        slidesPerView={3}
+        style={{ width: '100%', height: 360 }}
+        breakpoints={{
+          0: { slidesPerView: 1 },
+          768: { slidesPerView: 2 },
+          1024: { slidesPerView: 3 },
+        }}
+      >
+        {widgets.map((w) => (
+          <SwiperSlide key={w.key} style={{ width: 400, height: 360, display: 'flex', justifyContent: 'center' }}>
+            <WidgetCard
+              bgColor={w.bgColor}
+              textColor={w.textColor}
+              icon={w.icon}
+              title={w.title}
+              text={w.text}
+              className="w-[400px] h-[360px]"
+            />
+          </SwiperSlide>
+        ))}
+      </Swiper>
+    </div>
   );
 }; 
