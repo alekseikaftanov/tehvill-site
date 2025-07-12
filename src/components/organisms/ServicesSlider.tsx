@@ -1,9 +1,10 @@
 "use client";
 
-import { FC } from 'react';
+import { FC, useState, useRef } from 'react';
 import { Swiper, SwiperSlide } from 'swiper/react';
 import 'swiper/css';
 import { WidgetCard } from '../molecules/WidgetCard';
+import type { Swiper as SwiperType } from 'swiper';
 
 interface Widget {
   key: string;
@@ -19,17 +20,21 @@ interface ServicesSliderProps {
 }
 
 export const ServicesSlider: FC<ServicesSliderProps> = ({ widgets }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const swiperRef = useRef<SwiperType | null>(null);
   return (
-    <div style={{ width: 1240, height: 360 }}>
+    <div style={{ width: 1240, height: 380 }}>
       <Swiper
         spaceBetween={20}
         slidesPerView={3}
-        style={{ width: '100%', height: 360 }}
+        style={{ width: '100%', height: 360, cursor: 'grab' }}
         breakpoints={{
           0: { slidesPerView: 1 },
           768: { slidesPerView: 2 },
           1024: { slidesPerView: 3 },
         }}
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
         {widgets.map((w) => (
           <SwiperSlide key={w.key} style={{ width: 400, height: 360, display: 'flex', justifyContent: 'center' }}>
@@ -44,6 +49,27 @@ export const ServicesSlider: FC<ServicesSliderProps> = ({ widgets }) => {
           </SwiperSlide>
         ))}
       </Swiper>
+      {/* Кастомная пагинация */}
+      <div style={{ display: 'flex', justifyContent: 'center', gap: 12, marginTop: 12 }}>
+        {widgets.map((_, idx) => (
+          <div
+            key={idx}
+            style={{
+              width: 12,
+              height: 12,
+              borderRadius: '50%',
+              background: idx === activeIndex ? '#fff' : '#F5F7FA',
+              transition: 'background 0.2s',
+              cursor: 'grab',
+              // border и boxShadow убраны
+            }}
+            onClick={() => {
+              swiperRef.current?.slideTo(idx);
+            }}
+            onMouseEnter={e => (e.currentTarget.style.cursor = 'grab')}
+          />
+        ))}
+      </div>
     </div>
   );
 };
