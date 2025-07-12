@@ -238,35 +238,55 @@ export default function Home() {
           Хороши в том что делаем
         </div>
       </div>
-      {/* Группа карточек: Чистый код + High Digital Services */}
+      {/* Группа карточек: Чистый код + High Digital Services + Комплексный подход + сдвоенный виджет */}
       <div className="w-full max-w-[1240px] mx-auto flex flex-row gap-5 px-4" style={{ marginTop: 0 }}>
-        <WidgetCard
-          bgColor="bg-white"
-          textColor="text-[#333]"
-          iconBorderColor="black"
-          className="flex flex-col items-start p-[30px] gap-4 w-[388px] h-[292px] rounded-[40px]"
-          icon={
-            <div style={{ width: 40, height: 40, border: '2px solid rgba(51,51,51,0.25)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
-              <img src="/clean_code_icon.svg" alt="Чистый код" width={22} height={22} style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }} />
+        {/* Левая колонка: две белые карточки и фиолетовый блок под ними */}
+        <div style={{ display: 'flex', flexDirection: 'column', gap: 20, width: 796 }}>
+          <div style={{ display: 'flex', flexDirection: 'row', gap: 20 }}>
+            <WidgetCard
+              bgColor="bg-white"
+              textColor="text-[#333]"
+              iconBorderColor="black"
+              className="flex flex-col items-start p-[30px] gap-4 w-[388px] h-[292px] rounded-[40px]"
+              icon={
+                <div style={{ width: 40, height: 40, border: '2px solid rgba(51,51,51,0.25)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+                  <img src="/clean_code_icon.svg" alt="Чистый код" width={22} height={22} style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }} />
+                </div>
+              }
+              title={<span className="font-montserrat" style={{ fontWeight: 600, fontSize: 28, lineHeight: '120%', letterSpacing: '-0.04em', color: '#333', height: 34 }}>Чистый код</span>}
+              text={<span className="font-inter" style={{ fontWeight: 500, fontSize: 18, lineHeight: '135%', letterSpacing: '-0.01em', color: '#5C5C5C', opacity: 0.8, height: 72, display: 'block' }}>Отвечаем за качество кода, используем только лучшие технические решения.</span>}
+            />
+            <WidgetCard
+              bgColor="bg-white"
+              textColor="text-[#333]"
+              iconBorderColor="black"
+              className="flex flex-col items-start p-[30px] gap-4 w-[388px] h-[292px] rounded-[40px]"
+              icon={
+                <div style={{ width: 40, height: 40, border: '2px solid rgba(51,51,51,0.25)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+                  <img src="/services_icon.svg" alt="High Digital Services" width={22} height={22} style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }} />
+                </div>
+              }
+              title={<span className="font-montserrat" style={{ fontWeight: 600, fontSize: 28, lineHeight: '120%', letterSpacing: '-0.04em', color: '#333', height: 34 }}>High Digital Services</span>}
+              text={<span className="font-inter" style={{ fontWeight: 500, fontSize: 18, lineHeight: '135%', letterSpacing: '-0.01em', color: '#5C5C5C', opacity: 0.8, height: 72, display: 'block' }}>Входит в состав ГК Автомакон — системный интегратор передовых и наукоемких технологий</span>}
+            />
+          </div>
+          {/* Фиолетовый блок под двумя карточками */}
+          <div style={{ width: 796, height: 292, background: '#6C1EFF', borderRadius: 40, padding: 30, gap: 16, display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'flex-start', position: 'relative', isolation: 'isolate', overflow: 'hidden' }}>
+            {/* Контейнер для иконки и текста слева */}
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', textAlign: 'left', gap: 16, zIndex: 1 }}>
+              <div style={{ width: 40, height: 40, border: '2px solid rgba(255,255,255,0.25)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+                <img src="/complex_icon.svg" alt="Комплексный подход" width={22} height={22} style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }} />
+              </div>
+              <div style={{ width: 400, height: 116, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: 0, gap: 10 }}>
+                <span className="font-montserrat" style={{ fontWeight: 600, fontSize: 28, lineHeight: '120%', letterSpacing: '-0.04em', color: '#fff', height: 34, display: 'block' }}>Комплексный подход</span>
+                <span className="font-inter" style={{ fontWeight: 500, fontSize: 18, lineHeight: '135%', letterSpacing: '-0.01em', color: '#fff', opacity: 0.8, height: 72, display: 'block' }}>Ведём проекты с 0 до поддержки после запуска. Готовы подключиться на любом этапе и взять под контроль все процессы.</span>
+              </div>
             </div>
-          }
-          title={<span className="font-montserrat" style={{ fontWeight: 600, fontSize: 28, lineHeight: '120%', letterSpacing: '-0.04em', color: '#333', height: 34 }}>Чистый код</span>}
-          text={<span className="font-inter" style={{ fontWeight: 500, fontSize: 18, lineHeight: '135%', letterSpacing: '-0.01em', color: '#5C5C5C', opacity: 0.8, height: 72, display: 'block' }}>Отвечаем за качество кода, используем только лучшие технические решения.</span>}
-        />
-        <WidgetCard
-          bgColor="bg-white"
-          textColor="text-[#333]"
-          iconBorderColor="black"
-          className="flex flex-col items-start p-[30px] gap-4 w-[388px] h-[292px] rounded-[40px]"
-          icon={
-            <div style={{ width: 40, height: 40, border: '2px solid rgba(51,51,51,0.25)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
-              <img src="/services_icon.svg" alt="High Digital Services" width={22} height={22} style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }} />
-            </div>
-          }
-          title={<span className="font-montserrat" style={{ fontWeight: 600, fontSize: 28, lineHeight: '120%', letterSpacing: '-0.04em', color: '#333', height: 34 }}>High Digital Services</span>}
-          text={<span className="font-inter" style={{ fontWeight: 500, fontSize: 18, lineHeight: '135%', letterSpacing: '-0.01em', color: '#5C5C5C', opacity: 0.8, height: 72, display: 'block' }}>Входит в состав ГК Автомакон — системный интегратор передовых и наукоемких технологий</span>}
-        />
-        {/* Сдвоенный вертикальный виджет */}
+            {/* Декоративный фон-изображение справа */}
+            <img src="/complex_background_image.svg" alt="Complex BG" style={{ position: 'absolute', right: 0, top: 0, height: '100%', zIndex: 0, pointerEvents: 'none', userSelect: 'none' }} />
+          </div>
+        </div>
+        {/* Правая колонка: сдвоенный вертикальный виджет */}
         <div style={{ width: 424, height: 604, background: '#fff', borderRadius: 40, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: 0, flex: 'none', order: 1, flexGrow: 0 }}>
           {/* Верхняя секция */}
           <div style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: 30, gap: 16, width: 424, height: 290, borderBottom: '1px solid rgba(51,51,51,0.1)', borderRadius: '40px 40px 0 0', flex: 'none', order: 0, alignSelf: 'stretch', flexGrow: 0 }}>
@@ -287,6 +307,44 @@ export default function Home() {
               <span className="font-montserrat" style={{ fontWeight: 600, fontSize: 28, lineHeight: '120%', letterSpacing: '-0.04em', color: '#333', height: 68, display: 'block' }}>Профессиональная команда</span>
               <span className="font-inter" style={{ fontWeight: 500, fontSize: 18, lineHeight: '135%', letterSpacing: '-0.01em', color: '#5C5C5C', opacity: 0.8, height: 120, display: 'block' }}>Мы умеем работать с разными технологиями и решениями, реализовываем как локальные, так и международные проекты на одинаково высоком уровне.</span>
             </div>
+          </div>
+        </div>
+      </div>
+      {/* Новая секция из трёх элементов */}
+      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', padding: 0, gap: 20, width: 1240, height: 274, margin: '20px auto 0 auto' }}>
+        {/* Левая группа из двух карточек */}
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', padding: 0, gap: 20, width: 680, height: 274, flex: 1 }}>
+          {/* Карточка 1: Ответственность */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: 30, gap: 16, width: 330, height: 274, background: '#fff', borderRadius: 40, boxSizing: 'border-box', flex: 1, position: 'relative' }}>
+            <div style={{ width: 40, height: 40, border: '2px solid rgba(51,51,51,0.25)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+              <img src="/responsibility_icon.svg" alt="Ответственность" width={22} height={22} style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }} />
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: 0, gap: 10, width: 270, height: 140 }}>
+              <span className="font-montserrat" style={{ fontWeight: 600, fontSize: 28, lineHeight: '120%', letterSpacing: '-0.04em', color: '#333', height: 34, width: 270, display: 'block' }}>Ответственность</span>
+              <span className="font-inter" style={{ fontWeight: 500, fontSize: 18, lineHeight: '135%', letterSpacing: '-0.01em', color: '#5C5C5C', opacity: 0.8, height: 96, width: 270, display: 'block' }}>Несём полную ответственность за результат каждого сотрудника и проекта в целом.</span>
+            </div>
+          </div>
+          {/* Карточка 2: Оперативность */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: 30, gap: 16, width: 330, height: 274, background: '#fff', borderRadius: 40, boxSizing: 'border-box', flex: 1, position: 'relative' }}>
+            <div style={{ width: 40, height: 40, border: '2px solid rgba(51,51,51,0.25)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+              <img src="/fast_icon.svg" alt="Оперативность" width={22} height={22} style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }} />
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: 0, gap: 10, width: 270, height: 140 }}>
+              <span className="font-montserrat" style={{ fontWeight: 600, fontSize: 28, lineHeight: '120%', letterSpacing: '-0.04em', color: '#333', height: 34, width: 270, display: 'block' }}>Оперативность</span>
+              <span className="font-inter" style={{ fontWeight: 500, fontSize: 18, lineHeight: '135%', letterSpacing: '-0.01em', color: '#5C5C5C', opacity: 0.8, height: 96, width: 270, display: 'block' }}>Разделяем крупные проекты на этапы, соблюдаем договоренности о сроках, запускаем без задержек.</span>
+            </div>
+          </div>
+        </div>
+        {/* Правая карточка: Индивидуальное решение */}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: 30, gap: 16, width: 540, height: 274, background: '#A5F04B', borderRadius: 40, boxSizing: 'border-box', position: 'relative', flex: 'none', overflow: 'hidden' }}>
+          {/* Декоративный фон */}
+          <img src="/individual_solution_background.svg" alt="Индивидуальное решение фон" style={{ position: 'absolute', left: 0, top: 0, width: '100%', height: '100%', zIndex: 0, pointerEvents: 'none', userSelect: 'none' }} />
+          <div style={{ width: 40, height: 40, border: '2px solid rgba(255,255,255,0.25)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', zIndex: 1 }}>
+            <img src="/individual_solution_icon.svg" alt="Индивидуальное решение" width={22} height={22} style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }} />
+          </div>
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: 0, gap: 10, width: 399, height: 140, zIndex: 2 }}>
+            <span className="font-montserrat" style={{ fontWeight: 600, fontSize: 28, lineHeight: '120%', letterSpacing: '-0.04em', color: '#333', height: 34, width: 399, display: 'block' }}>Индивидуальное решение</span>
+            <span className="font-inter" style={{ fontWeight: 500, fontSize: 18, lineHeight: '135%', letterSpacing: '-0.01em', color: '#333', opacity: 0.8, height: 96, width: 399, display: 'block' }}>Разработаем решение, которое подойдёт именно для вашего бизнеса с учётом особенностей бизнес-модели и предпочтений ваших клиентов.</span>
           </div>
         </div>
       </div>
