@@ -238,6 +238,35 @@ export default function Home() {
           Хороши в том что делаем
         </div>
       </div>
+      {/* Группа карточек: Чистый код + High Digital Services */}
+      <div className="w-full max-w-[1240px] mx-auto flex flex-row gap-5 px-4" style={{ marginTop: 0 }}>
+        <WidgetCard
+          bgColor="bg-white"
+          textColor="text-[#333]"
+          iconBorderColor="black"
+          className="flex flex-col items-start p-[30px] gap-4 w-[388px] h-[292px] rounded-[40px]"
+          icon={
+            <div style={{ width: 40, height: 40, border: '2px solid rgba(51,51,51,0.25)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+              <img src="/clean_code_icon.svg" alt="Чистый код" width={22} height={22} style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }} />
+            </div>
+          }
+          title={<span className="font-montserrat" style={{ fontWeight: 600, fontSize: 28, lineHeight: '120%', letterSpacing: '-0.04em', color: '#333', height: 34 }}>Чистый код</span>}
+          text={<span className="font-inter" style={{ fontWeight: 500, fontSize: 18, lineHeight: '135%', letterSpacing: '-0.01em', color: '#5C5C5C', opacity: 0.8, height: 72, display: 'block' }}>Отвечаем за качество кода, используем только лучшие технические решения.</span>}
+        />
+        <WidgetCard
+          bgColor="bg-white"
+          textColor="text-[#333]"
+          iconBorderColor="black"
+          className="flex flex-col items-start p-[30px] gap-4 w-[388px] h-[292px] rounded-[40px]"
+          icon={
+            <div style={{ width: 40, height: 40, border: '2px solid rgba(51,51,51,0.25)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+              <img src="/services_icon.svg" alt="High Digital Services" width={22} height={22} style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }} />
+            </div>
+          }
+          title={<span className="font-montserrat" style={{ fontWeight: 600, fontSize: 28, lineHeight: '120%', letterSpacing: '-0.04em', color: '#333', height: 34 }}>High Digital Services</span>}
+          text={<span className="font-inter" style={{ fontWeight: 500, fontSize: 18, lineHeight: '135%', letterSpacing: '-0.01em', color: '#5C5C5C', opacity: 0.8, height: 72, display: 'block' }}>Входит в состав ГК Автомакон — системный интегратор передовых и наукоемких технологий</span>}
+        />
+      </div>
     </>
   );
 }
