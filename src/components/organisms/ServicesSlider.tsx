@@ -60,13 +60,12 @@ export const ServicesSlider: FC<ServicesSliderProps> = ({ widgets }) => {
               borderRadius: '50%',
               background: idx === activeIndex ? '#fff' : '#F5F7FA',
               transition: 'background 0.2s',
-              cursor: 'grab',
-              // border и boxShadow убраны
+              cursor: 'pointer',
             }}
             onClick={() => {
               swiperRef.current?.slideTo(idx);
             }}
-            onMouseEnter={e => (e.currentTarget.style.cursor = 'grab')}
+            onMouseEnter={e => (e.currentTarget.style.cursor = 'pointer')}
           />
         ))}
       </div>
@@ -79,17 +78,21 @@ interface SimpleImageSliderProps {
 }
 
 export const SimpleImageSlider: FC<SimpleImageSliderProps> = ({ images }) => {
+  const [activeIndex, setActiveIndex] = useState(0);
+  const swiperRef = useRef<SwiperType | null>(null);
   return (
     <div style={{ width: 1240, height: 600, marginTop: 40 }}>
       <Swiper
         spaceBetween={20}
         slidesPerView={'auto'}
-        style={{ width: '100%', height: 600 }}
+        style={{ width: '100%', height: 600, cursor: 'grab' }}
         breakpoints={{
           0: { slidesPerView: 1, spaceBetween: 20 },
           768: { slidesPerView: 2, spaceBetween: 20 },
           1024: { slidesPerView: 'auto', spaceBetween: 20 },
         }}
+        onSlideChange={(swiper) => setActiveIndex(swiper.realIndex)}
+        onSwiper={(swiper) => (swiperRef.current = swiper)}
       >
         {images.map((src, i) => (
           <SwiperSlide
@@ -105,6 +108,26 @@ export const SimpleImageSlider: FC<SimpleImageSliderProps> = ({ images }) => {
           </SwiperSlide>
         ))}
       </Swiper>
+      {/* Кастомная пагинация */}
+      <div style={{ display: 'flex', justifyContent: 'center', gap: 12, marginTop: 12 }}>
+        {images.map((_, idx) => (
+          <div
+            key={idx}
+            style={{
+              width: 12,
+              height: 12,
+              borderRadius: '50%',
+              background: '#fff',
+              transition: 'background 0.2s',
+              cursor: 'pointer',
+            }}
+            onClick={() => {
+              swiperRef.current?.slideTo(idx);
+            }}
+            onMouseEnter={e => (e.currentTarget.style.cursor = 'pointer')}
+          />
+        ))}
+      </div>
     </div>
   );
 }; 
