@@ -230,6 +230,17 @@ export default function Home() {
         />
       </div>
       <BannerWidget />
+      <div className="w-full flex justify-center" style={{ marginTop: 120 }}>
+        <div
+          className="font-montserrat font-semibold"
+          style={{ width: 1240, height: 112, fontSize: 56, lineHeight: '100%', letterSpacing: '-0.04em', color: '#333' }}
+        >
+          Хороши в том что делаем
+        </div>
+      </div>
     </>
   );
 }
+
+
+
