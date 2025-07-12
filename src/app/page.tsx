@@ -2,8 +2,25 @@ import { Hero } from '@/components/organisms/Hero';
 import { WidgetCard } from '@/components/molecules/WidgetCard';
 import { ServicesSlider, SimpleImageSlider } from '@/components/organisms/ServicesSlider';
 import { BannerWidget } from '@/components/organisms/BannerWidget';
+import { DirectionsWidget } from '@/components/organisms/DirectionsWidget';
 
 export default function Home() {
+  const techIcons: Record<string, string> = {
+    Swift: '/pictures/complex_development_widget/swift_icon.svg',
+    Vue: '/pictures/complex_development_widget/vue_icon.svg',
+    Go: '/pictures/complex_development_widget/go_icon.svg',
+    Java: '/pictures/complex_development_widget/java_icon.svg',
+    Lumen: '/pictures/complex_development_widget/lumen_icon.svg',
+    Kotlin: '/pictures/complex_development_widget/kotlin_icon.svg',
+    React: '/pictures/complex_development_widget/react_icon.svg',
+    Flutter: '/pictures/complex_development_widget/flutter_icon.svg',
+    php: '/pictures/complex_development_widget/php_icon.svg',
+    Laravel: '/pictures/complex_development_widget/laravel_icon.svg',
+    Python: '/pictures/complex_development_widget/python_icon.svg',
+    Jenkins: '/pictures/complex_development_widget/git_icon.svg',
+    GitLab: '/pictures/complex_development_widget/git_icon.svg',
+    '1C': '/pictures/complex_development_widget/1C_icon.svg',
+  };
   return (
     <>
       <Hero />
@@ -364,10 +381,7 @@ export default function Home() {
           {/* Секция брендов */}
           <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', padding: 0, gap: 16, width: 582, height: 128, zIndex: 0 }}>
             <div style={{ width: 40, height: 40, border: '2px solid rgba(51,51,51,0.25)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
-              {/* Здесь ваша иконка брендов */}
-              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }}>
-                <circle cx="11" cy="11" r="9" stroke="#333" strokeWidth="2.2" />
-              </svg>
+              <img src="/pictures/complex_development_widget/brand_icon.svg" alt="Бренды" width={22} height={22} style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }} />
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: 0, gap: 12, width: 526, height: 128 }}>
               <span className="font-montserrat" style={{ fontWeight: 600, fontSize: 28, lineHeight: '120%', letterSpacing: '-0.04em', color: '#333', width: 526, height: 68, display: 'block' }}>Сотрудничество с крупнейшими брендами</span>
@@ -377,10 +391,7 @@ export default function Home() {
           {/* Секция стек технологий */}
           <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', padding: 0, gap: 16, width: 582, height: 348, zIndex: 1 }}>
             <div style={{ width: 40, height: 40, border: '2px solid rgba(51,51,51,0.25)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
-              {/* Здесь ваша иконка стека */}
-              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }}>
-                <rect x="3" y="6" width="16" height="10" rx="3" stroke="#333" strokeWidth="2.2" />
-              </svg>
+              <img src="/pictures/complex_development_widget/stack_icon.svg" alt="Стек" width={22} height={22} style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }} />
             </div>
             <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: 0, gap: 12, width: 526, height: 348 }}>
               <span className="font-montserrat" style={{ fontWeight: 600, fontSize: 28, lineHeight: '120%', letterSpacing: '-0.04em', color: '#333', width: 526, height: 68, display: 'block' }}>Универсальный технологический стек</span>
@@ -390,13 +401,18 @@ export default function Home() {
                 {['Swift', 'Vue', 'Go', 'Java', 'Lumen', 'Kotlin', 'React', 'Flutter', 'php', 'Laravel', 'Python', '1C', 'Jenkins', 'GitLab'].map((tech, i) => (
                   <div key={tech} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', padding: '8px 16px', gap: 8, background: '#F5F7FA', borderRadius: 14, height: 46, minWidth: 80 }}>
                     <span className="font-inter" style={{ fontWeight: 500, fontSize: 20, lineHeight: '150%', letterSpacing: '-0.04em', color: '#333', textAlign: 'center', minWidth: 24 }}>{tech}</span>
-                    {/* Здесь можно добавить иконку для каждой технологии */}
+                    {techIcons[tech] && (
+                      <img src={techIcons[tech]} alt={tech + ' icon'} width={20} height={20} style={{ display: 'inline-block' }} />
+                    )}
                   </div>
                 ))}
               </div>
             </div>
           </div>
         </div>
+      </div>
+      <div className="w-full max-w-[1240px] mx-auto px-4" style={{ minHeight: 827, marginTop: 120 }}>
+        <DirectionsWidget />
       </div>
     </>
   );
