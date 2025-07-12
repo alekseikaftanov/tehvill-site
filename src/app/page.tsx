@@ -348,6 +348,56 @@ export default function Home() {
           </div>
         </div>
       </div>
+      {/* Новый виджет: Комплексная разработка приложений + бренды и стек */}
+      <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', padding: 0, width: 1240, height: 580, background: '#fff', borderRadius: '40px 40px 120px 120px', margin: '40px auto 0 auto', zIndex: 2, position: 'relative' }}>
+        {/* Левая часть: фиолетовый блок с заголовком и фоном */}
+        <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', padding: 40, gap: 10, isolation: 'isolate', width: 578, height: 580, background: '#6C1EFF', borderRadius: '40px 0 120px 0', position: 'relative', flex: 1, overflow: 'hidden' }}>
+          {/* Фоновое изображение (замените src на ваш путь) */}
+          <img src="/image_250.png" alt="Фон" style={{ position: 'absolute', width: 2840.49, height: 1568, left: 'calc(50% - 1420.245px - 89.76px)', top: 'calc(50% - 784px - 374px)', opacity: 0.2, mixBlendMode: 'luminosity', zIndex: 0, pointerEvents: 'none', userSelect: 'none' }} />
+          {/* Заголовок */}
+          <div style={{ position: 'relative', zIndex: 1, width: 498, height: 201, display: 'flex', alignItems: 'flex-start' }}>
+            <span className="font-montserrat" style={{ fontWeight: 600, fontSize: 56, lineHeight: '120%', letterSpacing: '-0.04em', color: '#fff', width: 498, height: 201, display: 'block' }}>Комплексная разработка приложений</span>
+          </div>
+        </div>
+        {/* Правая часть: белый блок с брендами и стеком */}
+        <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: 40, gap: 24, isolation: 'isolate', width: 662, height: 580, background: 'transparent', borderRadius: '0 40px 120px 0', flex: 'none' }}>
+          {/* Секция брендов */}
+          <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', padding: 0, gap: 16, width: 582, height: 128, zIndex: 0 }}>
+            <div style={{ width: 40, height: 40, border: '2px solid rgba(51,51,51,0.25)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+              {/* Здесь ваша иконка брендов */}
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }}>
+                <circle cx="11" cy="11" r="9" stroke="#333" strokeWidth="2.2" />
+              </svg>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: 0, gap: 12, width: 526, height: 128 }}>
+              <span className="font-montserrat" style={{ fontWeight: 600, fontSize: 28, lineHeight: '120%', letterSpacing: '-0.04em', color: '#333', width: 526, height: 68, display: 'block' }}>Сотрудничество с крупнейшими брендами</span>
+              <span className="font-inter" style={{ fontWeight: 500, fontSize: 18, lineHeight: '135%', letterSpacing: '-0.01em', color: '#5C5C5C', opacity: 0.8, width: 526, height: 48, display: 'block' }}>Партнёрство, проверенное временем и опытом. К нам возвращаются и нас рекомендуют</span>
+            </div>
+          </div>
+          {/* Секция стек технологий */}
+          <div style={{ display: 'flex', flexDirection: 'row', alignItems: 'flex-start', padding: 0, gap: 16, width: 582, height: 348, zIndex: 1 }}>
+            <div style={{ width: 40, height: 40, border: '2px solid rgba(51,51,51,0.25)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+              {/* Здесь ваша иконка стека */}
+              <svg width="22" height="22" viewBox="0 0 22 22" fill="none" style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }}>
+                <rect x="3" y="6" width="16" height="10" rx="3" stroke="#333" strokeWidth="2.2" />
+              </svg>
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: 0, gap: 12, width: 526, height: 348 }}>
+              <span className="font-montserrat" style={{ fontWeight: 600, fontSize: 28, lineHeight: '120%', letterSpacing: '-0.04em', color: '#333', width: 526, height: 68, display: 'block' }}>Универсальный технологический стек</span>
+              <span className="font-inter" style={{ fontWeight: 500, fontSize: 18, lineHeight: '135%', letterSpacing: '-0.01em', color: '#5C5C5C', opacity: 0.8, width: 526, height: 48, display: 'block' }}>Идём в ногу со временем и используем современные технологии</span>
+              {/* Теги технологий */}
+              <div style={{ display: 'flex', flexDirection: 'row', flexWrap: 'wrap', alignItems: 'flex-start', alignContent: 'flex-start', padding: 0, gap: 8, width: 526, height: 208, marginTop: 16 }}>
+                {['Swift', 'Vue', 'Go', 'Java', 'Lumen', 'Kotlin', 'React', 'Flutter', 'php', 'Laravel', 'Python', '1C', 'Jenkins', 'GitLab'].map((tech, i) => (
+                  <div key={tech} style={{ display: 'flex', flexDirection: 'row', alignItems: 'center', padding: '8px 16px', gap: 8, background: '#F5F7FA', borderRadius: 14, height: 46, minWidth: 80 }}>
+                    <span className="font-inter" style={{ fontWeight: 500, fontSize: 20, lineHeight: '150%', letterSpacing: '-0.04em', color: '#333', textAlign: 'center', minWidth: 24 }}>{tech}</span>
+                    {/* Здесь можно добавить иконку для каждой технологии */}
+                  </div>
+                ))}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
     </>
   );
 }
