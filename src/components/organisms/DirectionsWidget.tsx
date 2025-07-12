@@ -272,36 +272,75 @@ export const DirectionsWidget: React.FC = () => {
       >
         {/* Правая панель — список направлений */}
         <div
-          className="flex flex-row flex-wrap items-start content-start w-[646px] h-[720px] rounded-[40px]"
-          style={{ rowGap: 0, padding: 0 }}
+          className="flex flex-row flex-wrap items-start content-start w-[646px] h-[720px]"
+          style={{
+            rowGap: 0,
+            padding: 0,
+            borderTopRightRadius: 40,
+            borderBottomLeftRadius: 40,
+            borderTopLeftRadius: 40,
+            borderBottomRightRadius: 40,
+            overflow: 'hidden',
+            background: '#fff',
+          }}
         >
-          {directions.map((dir) => (
-            <div
-              key={dir.key}
-              onClick={() => setActive(dir.key)}
-              className="flex flex-col justify-center items-start cursor-pointer"
-              style={{
-                width: 323,
-                height: 80,
-                background: dir.key === active ? '#A5F04B' : '#FFFFFF',
-                borderRadius: 40,
-                padding: '16px 30px',
-                gap: 16,
-                fontFamily: 'Montserrat',
-                fontWeight: 600,
-                fontSize: 20,
-                lineHeight: '120%',
-                letterSpacing: '-0.04em',
-                color: '#333',
-                boxShadow: dir.key === active ? '0 0 0 2px #A5F04B' : 'none',
-                transition: 'background 0.2s, box-shadow 0.2s',
-                margin: 0,
-                alignSelf: 'flex-start',
-              }}
-            >
-              <span style={{ width: 263, height: 24, display: 'block' }}>{dir.label}</span>
-            </div>
-          ))}
+          {directions.map((dir, idx) => {
+            // Определяем позицию ячейки в сетке 2xN
+            const rowCount = Math.ceil(directions.length / 2);
+            const isLeftCol = idx % 2 === 0;
+            const rowIdx = Math.floor(idx / 2);
+            const isTopRow = rowIdx === 0;
+            const isBottomRow = rowIdx === rowCount - 1;
+            const isActive = dir.key === active;
+            let borderRadiusStyles = {};
+            if (isActive) {
+              if (isLeftCol && isTopRow) {
+                // Верхняя левая
+                borderRadiusStyles = { borderTopLeftRadius: 40 };
+              } else if (!isLeftCol && isTopRow) {
+                // Верхняя правая
+                borderRadiusStyles = { borderTopRightRadius: 40 };
+              } else if (isLeftCol && isBottomRow) {
+                // Нижняя левая
+                borderRadiusStyles = { borderBottomLeftRadius: 40 };
+              } else if (!isLeftCol && isBottomRow) {
+                // Нижняя правая
+                borderRadiusStyles = { borderBottomRightRadius: 40 };
+              } else {
+                // Все остальные
+                borderRadiusStyles = { borderRadius: 0 };
+              }
+            } else {
+              borderRadiusStyles = { borderRadius: 0 };
+            }
+            return (
+              <div
+                key={dir.key}
+                onClick={() => setActive(dir.key)}
+                className="flex flex-col justify-center items-start cursor-pointer"
+                style={{
+                  width: 323,
+                  height: 80,
+                  background: isActive ? '#A5F04B' : '#FFFFFF',
+                  padding: '16px 30px',
+                  gap: 16,
+                  fontFamily: 'Montserrat',
+                  fontWeight: 600,
+                  fontSize: 20,
+                  lineHeight: '120%',
+                  letterSpacing: '-0.04em',
+                  color: '#333',
+                  boxShadow: isActive ? '0 0 0 2px #A5F04B' : 'none',
+                  transition: 'background 0.2s, box-shadow 0.2s',
+                  margin: 0,
+                  alignSelf: 'flex-start',
+                  ...borderRadiusStyles,
+                }}
+              >
+                <span style={{ width: 263, height: 24, display: 'block' }}>{dir.label}</span>
+              </div>
+            );
+          })}
         </div>
         {/* Левая панель — текст */}
         <div
@@ -310,10 +349,25 @@ export const DirectionsWidget: React.FC = () => {
             width: 574,
             height: 720,
             padding: 40,
+            borderRadius: 40,
             isolation: 'isolate',
             position: 'relative',
+            overflow: 'hidden',
           }}
         >
+          {/* Декоративные иконки */}
+          <img
+            src="/robot_black_icon.svg"
+            alt="robot"
+            style={{ position: 'absolute', top: 10, right: 56, width: 80, height: 80, zIndex: 2 }}
+            aria-hidden
+          />
+          <img
+            src="/pictures/vacancy/star_purple_icon.svg"
+            alt="star"
+            style={{ position: 'absolute', top: 16, right: 16, width: 48, height: 48, zIndex: 2 }}
+            aria-hidden
+          />
           <div
             className="font-montserrat font-semibold"
             style={{ fontSize: 56, lineHeight: '120%', letterSpacing: '-0.04em', color: '#333', marginBottom: 8 }}
