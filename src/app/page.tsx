@@ -228,8 +228,8 @@ export default function Home() {
             '/slider/terminals.svg',
           ]}
         />
-        <BannerWidget />
       </div>
+      <BannerWidget />
     </>
   );
 }
