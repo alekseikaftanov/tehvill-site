@@ -266,6 +266,29 @@ export default function Home() {
           title={<span className="font-montserrat" style={{ fontWeight: 600, fontSize: 28, lineHeight: '120%', letterSpacing: '-0.04em', color: '#333', height: 34 }}>High Digital Services</span>}
           text={<span className="font-inter" style={{ fontWeight: 500, fontSize: 18, lineHeight: '135%', letterSpacing: '-0.01em', color: '#5C5C5C', opacity: 0.8, height: 72, display: 'block' }}>Входит в состав ГК Автомакон — системный интегратор передовых и наукоемких технологий</span>}
         />
+        {/* Сдвоенный вертикальный виджет */}
+        <div style={{ width: 424, height: 604, background: '#fff', borderRadius: 40, display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: 0, flex: 'none', order: 1, flexGrow: 0 }}>
+          {/* Верхняя секция */}
+          <div style={{ boxSizing: 'border-box', display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: 30, gap: 16, width: 424, height: 290, borderBottom: '1px solid rgba(51,51,51,0.1)', borderRadius: '40px 40px 0 0', flex: 'none', order: 0, alignSelf: 'stretch', flexGrow: 0 }}>
+            <div style={{ width: 40, height: 40, border: '2px solid rgba(51,51,51,0.25)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+              <img src="/quantity_icon.svg" alt="Quantity" width={22} height={22} style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }} />
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: 0, gap: 10, width: 364, height: 174 }}>
+              <span className="font-montserrat" style={{ fontWeight: 600, fontSize: 28, lineHeight: '120%', letterSpacing: '-0.04em', color: '#333', height: 68, display: 'block' }}>1000+ крутых специалистов</span>
+              <span className="font-inter" style={{ fontWeight: 500, fontSize: 18, lineHeight: '135%', letterSpacing: '-0.01em', color: '#5C5C5C', opacity: 0.8, height: 96, display: 'block' }}>Команда HighStack специализируется в разработке веб-сервисов и мобильных приложений – от логики и дизайна до программирования.</span>
+            </div>
+          </div>
+          {/* Нижняя секция */}
+          <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: 30, gap: 16, width: 424, height: 314, borderRadius: '0 0 40px 40px', flex: 'none', order: 1, alignSelf: 'stretch', flexGrow: 0 }}>
+            <div style={{ width: 40, height: 40, border: '2px solid rgba(51,51,51,0.25)', borderRadius: 12, display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
+              <img src="/team_icon.svg" alt="Team" width={22} height={22} style={{ position: 'absolute', left: '50%', top: '50%', transform: 'translate(-50%, -50%)' }} />
+            </div>
+            <div style={{ display: 'flex', flexDirection: 'column', alignItems: 'flex-start', padding: 0, gap: 10, width: 364, height: 198 }}>
+              <span className="font-montserrat" style={{ fontWeight: 600, fontSize: 28, lineHeight: '120%', letterSpacing: '-0.04em', color: '#333', height: 68, display: 'block' }}>Профессиональная команда</span>
+              <span className="font-inter" style={{ fontWeight: 500, fontSize: 18, lineHeight: '135%', letterSpacing: '-0.01em', color: '#5C5C5C', opacity: 0.8, height: 120, display: 'block' }}>Мы умеем работать с разными технологиями и решениями, реализовываем как локальные, так и международные проекты на одинаково высоком уровне.</span>
+            </div>
+          </div>
+        </div>
       </div>
     </>
   );
