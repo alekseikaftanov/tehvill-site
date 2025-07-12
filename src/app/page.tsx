@@ -1,6 +1,7 @@
 import { Hero } from '@/components/organisms/Hero';
 import { WidgetCard } from '@/components/molecules/WidgetCard';
-import { ServicesSlider } from '@/components/organisms/ServicesSlider';
+import { ServicesSlider, SimpleImageSlider } from '@/components/organisms/ServicesSlider';
+import { BannerWidget } from '@/components/organisms/BannerWidget';
 
 export default function Home() {
   return (
@@ -208,6 +209,26 @@ export default function Home() {
             },
           ]}
         />
+      </div>
+      <div className="w-full flex justify-center" style={{ marginTop: 120 }}>
+        <div
+          className="font-montserrat font-semibold"
+          style={{ width: 1240, height: 112, fontSize: 56, lineHeight: '100%', letterSpacing: '-0.04em', color: '#333' }}
+        >
+          Разрабатываем экосистему ВкусВилл, которую вы так любите
+        </div>
+      </div>
+      <div style={{ marginTop: 40, marginBottom: 0, width: '100%', display: 'flex', justifyContent: 'center' }}>
+        <SimpleImageSlider
+          images={[
+            '/slider/vkusvill.svg',
+            '/slider/courier.svg',
+            '/slider/parthner.svg',
+            '/slider/suplier.svg',
+            '/slider/terminals.svg',
+          ]}
+        />
+        <BannerWidget />
       </div>
     </>
   );
